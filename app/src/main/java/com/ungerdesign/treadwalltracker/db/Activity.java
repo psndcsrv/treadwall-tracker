@@ -1,6 +1,7 @@
 package com.ungerdesign.treadwalltracker.db;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity
@@ -20,6 +21,7 @@ public class Activity {
         this.notes = notes;
     }
 
+    @Ignore
     public Activity(int id, int priorActivityLevel, int assessmentStart) {
         this.id = id;
         this.priorActivityLevel = priorActivityLevel;

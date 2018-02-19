@@ -2,22 +2,24 @@ package com.ungerdesign.treadwalltracker.db;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-import java.time.OffsetDateTime;
-
 @Entity(foreignKeys = @ForeignKey(entity = Activity.class,
-        parentColumns = "id",
-        childColumns = "activityId"))
+            parentColumns = "id",
+            childColumns = "activityId"),
+        indices = {@Index(value = {"activityId", "attemptNumber"},
+            unique = true)})
 public class Attempt {
     @PrimaryKey
     private int id;
     private int activityId;
-    private OffsetDateTime startTime;
+    private long startTime;
     private int timeElapsed;
     private int attemptNumber;
 
-    public Attempt(int id, int activityId, OffsetDateTime startTime, int timeElapsed, int attemptNumber) {
+    public Attempt(int id, int activityId, long startTime, int timeElapsed, int attemptNumber) {
         this.id = id;
         this.activityId = activityId;
         this.startTime = startTime;
@@ -25,7 +27,8 @@ public class Attempt {
         this.attemptNumber = attemptNumber;
     }
 
-    public Attempt(int id, int activityId, OffsetDateTime startTime, int attemptNumber) {
+    @Ignore
+    public Attempt(int id, int activityId, long startTime, int attemptNumber) {
         this.id = id;
         this.activityId = activityId;
         this.startTime = startTime;
@@ -48,11 +51,11 @@ public class Attempt {
         this.activityId = activityId;
     }
 
-    public OffsetDateTime getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(OffsetDateTime startTime) {
+    public void setStartTime(long startTime) {
         this.startTime = startTime;
     }
 
