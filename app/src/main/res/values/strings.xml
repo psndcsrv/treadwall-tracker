@@ -6,4 +6,13 @@
     <string name="button_finish">Phew! I\m done.</string>
     <string name="button_quit">I\'ve had enough!</string>
     <string name="button_save">Save and Finish</string>
+    <string name="chrono_format">MM:SS</string>
+    <string name="timer_title">Timer</string>
+    <string name="staging_title">Staging</string>
+    <string name="main_screen_title">Main Screen</string>
+    <string name="initial_staging_title">Initial Staging</string>
+    <string name="initial_interview_title">Initial Interview</string>
+    <string name="exit_interview_title">Exit Interview</string>
+    <string name="last_attempt_label">Last attempt:</string>
+    <string name="last_attempt_elapsed">00:00</string>
 </resources>
