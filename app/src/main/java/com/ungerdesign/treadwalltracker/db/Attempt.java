@@ -6,11 +6,17 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Activity.class,
-            parentColumns = "id",
-            childColumns = "activityId"),
-        indices = {@Index(value = {"activityId", "attemptNumber"},
-            unique = true)})
+@Entity(foreignKeys = {
+            @ForeignKey(
+                entity = Activity.class,
+                parentColumns = "id",
+                childColumns = "activityId")
+        },
+        indices = {
+            @Index(
+                value = { "activityId", "attemptNumber" },
+                unique = true)
+        })
 public class Attempt {
     @PrimaryKey
     private int id;
